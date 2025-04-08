@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(logger("dev"));
 app.enable("trust proxy");
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "../frontend-layer/build"), { index: false }));
+app.use(express.static(path.join(__dirname, "../frontend/build"), { index: false }));
 
 // Session Middleware
 app.use(
