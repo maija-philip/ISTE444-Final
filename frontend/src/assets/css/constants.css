@@ -1,13 +1,19 @@
 :root {
     --white: #FFFFFF;
-    --black: #000000;
+    --black: #42271C;
 
-    --theme: #84BD00;
-    
-    --blue: #009CBD;
-    --purple: #7D55C7;
-    --red: #DA291C;
-    --yellow: #F6BE00;
+    --grey: #E8D3CA;
+    --light-grey: #F4EAE6;
+
+    --theme: #79412A;
+    --red: #B13535;
+    --dark-red: #A41919;
+    --light-red: #E15050;
+    --pink: #FB8484;
+    --light-pink: #FFBFBF;
+
+    --yellow: #DAA400;
+    --blue: #4160C2;
 }
 
 html, body {

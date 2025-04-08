@@ -1,15 +1,20 @@
 {
-  "short_name": "CRUD COWS",
-  "name": "CRUD COWS",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "good-cow.png",
+      "type": "image/png",
+      "sizes": "200x200"
+    },
+    {
+      "src": "evil-cow.png",
       "type": "image/png",
       "sizes": "200x200"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#79412A",
   "background_color": "#ffffff"
 }
