@@ -1,4 +1,4 @@
-const server = "http://localhost:8080";
+const server = "http://localhost:8080/api";
 
 /**
  * return the data received form the api specified

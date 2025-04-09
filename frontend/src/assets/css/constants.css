@@ -23,7 +23,7 @@ html, body {
     margin: 0;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    background-color: var(--white);
+    background-color: var(--grey);
     font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
     color: var(--black);
   }

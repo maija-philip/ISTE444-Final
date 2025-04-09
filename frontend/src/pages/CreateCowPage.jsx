@@ -3,20 +3,12 @@ import "../assets/css/constants.css";
 import "../assets/css/styles.css";
 
 import { Link } from "react-router-dom";
-import Cow from "../components/Cow";
+import Page from "../components/Page";
 
 export default function CreateCowPage() {
   return (
-    <div>
-      <h1>Create Cow</h1>
-      <div style={{ width: "100px" }}>
-        <Cow/>
-      </div>
-      <div style={{ width: "100px" }}>
-        <Cow isEvil="true"/>
-      </div>
-
+    <Page title={"Create Cow"}>
       <Link to="/">Back To Dashboard</Link>
-    </div>
+    </Page>
   );
 }

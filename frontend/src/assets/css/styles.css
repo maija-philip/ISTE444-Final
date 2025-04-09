@@ -1,0 +1,73 @@
+/* Page Setup Stuff */
+.page {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 4em);
+
+    text-align: center;
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+    font-size: 4em;
+}
+
+.content {
+    height: 100%;
+    flex: 1;
+    margin: 2em auto;
+}
+
+.footer {
+    margin: 5em;
+    margin-bottom: 0;
+    color: var(--theme);
+    text-align: center;
+}
+
+.red {
+    color: var(--red)
+}
+
+.button {
+    text-decoration: none;
+    font-weight: bold;
+
+    color: var(--grey);
+    background-color: var(--theme);
+    padding: 1em 1.5em;
+
+    border-radius: 1em;
+}
+
+.button:hover {
+    color: var(--theme);
+    background-color: var(--yellow);
+}
+
+/* COW BOX */
+.cow-box {
+    background-color: var(--light-grey);
+    padding: 1em;
+    margin: 1em;
+    display: inline-block;
+
+    width: 15em;
+    border-radius: 1em;
+}
+
+.cow-box .cow-image {
+    width: 50%;
+    margin: auto;
+}
+
+.cow-box .edit-cow {
+    color: var(--yellow);
+}
+.cow-box .edit-cow:hover {
+    filter: brightness(0.6);
+}
+
+/* CREATE NEW COW */

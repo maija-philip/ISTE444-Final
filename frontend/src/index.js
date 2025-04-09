@@ -1,12 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import { CowRouter } from './CowRouter';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { CowRouter } from "./CowRouter";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// Creates the theme for MUI
+const theme = createTheme({
+  palette: {
+    mode: "light",
+    primary: { main: "#79412A" },
+    secondary: { main: "#DAA400" },
+    text: {
+      primary: "#42271C",
+      secondary: "#79412A",
+    },
+    background: { default: "#FFFFFF" },
+  },
+});
+
 root.render(
   <React.StrictMode>
-    <CowRouter/>
+    <ThemeProvider theme={theme}>
+      <CowRouter />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

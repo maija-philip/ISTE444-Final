@@ -7,9 +7,19 @@ import { ReactComponent as GoodCow } from "../assets/media/good-cow.svg";
 
 export default function Cow({ isEvil = false }) {
   return (
-    <div style={{ width: "100%" }}>
+    <div
+      style={{
+        width: "100%",
+        textAlign: "center",
+        margin: "auto",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <svg
-        viewBox="0 0 700 620"
+        style={{ display: "block", margin: "auto", textAlign: "center" }}
+        viewBox="0 0 600 600"
+        preserveAspectRatio="xMidYMin"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         id="svg-box"

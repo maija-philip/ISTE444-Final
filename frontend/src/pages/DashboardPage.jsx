@@ -2,22 +2,53 @@ import * as React from "react";
 import "../assets/css/constants.css";
 import "../assets/css/styles.css";
 
+import { CircularProgress } from '@mui/material';
 import { Link } from "react-router-dom";
-import Cow from "../components/Cow";
+import Page from "../components/Page";
+import { API_METHODS, getAPIData } from "../utils/callAPI.js";
+import CowBox from "../components/CowBox.jsx";
 
 export default function DashboardPage() {
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      <div style={{ width: "100px" }}>
-        <Cow/>
-      </div>
-      <div style={{ width: "100px" }}>
-        <Cow isEvil="true"/>
-      </div>
+  const [cows, setCows] = React.useState(undefined);
+  const [error, setError] = React.useState("");
 
-      <Link to="/create">Create A Cow</Link><br/>
-        <Link to="/1/edit">Edit A Cow</Link>
-    </div>
+  React.useEffect(() => {
+    getAPIData('/cows', API_METHODS.get, {}).then((result) => {
+      if (!result || result.error) {
+        console.log("API Error: ", result)
+        setError("Something went wrong");
+        return;
+      } 
+      // console.log(result)
+      setCows(result.cows)
+      setError("")
+      return;
+    })
+  }, [])
+
+  return (
+    <Page title={"Dashboard"}>
+      {error !== "" ? (
+        <p className="red">{error}</p>
+      ) : !cows ? (
+        <CircularProgress />
+      ) : (
+
+        // Once Everything loads, here is the content
+
+        <div>
+          {/* All the cows */}
+          <div>
+          {cows.map((cow, index) => 
+            <CowBox details={cow} key={index}/>
+          )}
+          </div>
+
+          <br/>
+          <br/>
+          <Link to="/create" className="button">Create A Cow</Link>
+        </div>
+      )}
+    </Page>
   );
 }
