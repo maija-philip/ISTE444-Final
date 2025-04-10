@@ -15,18 +15,6 @@ export default function Toggle({
       <Switch
         checked={isChecked}
         onChange={onChange}
-        inputProps={{ "aria-label": label }}
-        sx={{
-          "& .MuiSwitch-switchBase": {
-            "&.Mui-checked": {
-              color: color,
-              "& + .MuiSwitch-track": {
-                opacity: 0.5,
-                backgroundColor: color,
-              },
-            },
-          },
-        }}
       />
     </div>
   );
