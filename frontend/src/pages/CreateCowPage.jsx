@@ -31,23 +31,21 @@ export default function CreateCowPage() {
   };
 
   const createCow = () => {
-    console.log("here 1")
+    setError("")
+    
     // validate that nothing is empty & age + weight are numbers
     let errors = validateCowObj(cow);
-    console.log('here 2', errors, cow)
     if (errors) {
       setError(errors);
       return;
     }
 
-    console.log("create cow: ", cow)
     getAPIData('/cow', API_METHODS.post, cow).then((result) => {
       if (!result || result.hasOwnProperty('error')) {
         console.log("error: ", result)
         setError("Something went wrong creating your cow")
         return;
       }
-      console.log("here last")
       setSuccessOpen(true)
     })
   };
