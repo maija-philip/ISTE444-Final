@@ -13,8 +13,8 @@ Jaaron Williams Gunpot
     SESSION_SECRET="CRUD-COWS"
     ```
 
-2. cd into `./frontend` and run `npm run build`
-3. cd into `../server` and run `node server.js`
+2. cd into `./frontend` and run `npm i` then `npm run build`
+3. cd into `../server` and run `npm i` then `node server.js`
 4. Navigate to [localhost:8080](http://localhost:8080) 
 
 
