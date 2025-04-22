@@ -10,6 +10,7 @@ export default function UserInput({
   setValue,
   isMultiline,
   onLeaveField,
+  isPassword = false
 }) {
 
   return (
@@ -21,6 +22,7 @@ export default function UserInput({
         label={label}
         variant="outlined"
         value={value}
+        type={isPassword ? "password" : "text"}
         onChange={(event) => {
           setValue(event.target.value);
         }}

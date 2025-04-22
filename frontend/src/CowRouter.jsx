@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import DashboardPage from "./pages/DashboardPage";
 import EditCowPage from "./pages/EditCowPage";
 import CreateCowPage from "./pages/CreateCowPage";
+import LoginPage from "./pages/LoginPage";
+import AccountPage from "./pages/AccountPage";
 
 
 
@@ -17,6 +19,10 @@ export const CowRouter = () => {
       element: <DashboardPage />,
     },
     {
+      path: "/login",
+      element: <LoginPage />,
+    },
+    {
       path: "/:cowId/edit",
       element: <EditCowPage />,
     },
@@ -24,6 +30,10 @@ export const CowRouter = () => {
       path: "/create",
       element: <CreateCowPage />,
     },
+    {
+      path: "/account",
+      element: <AccountPage/>
+    }
   ]);
 
   return (

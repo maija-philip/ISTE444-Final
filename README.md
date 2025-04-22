@@ -25,3 +25,6 @@ Run the frontend by cd-ing into `frontend` and running `npm start` \
 This will start the frontend in development mode in [localhost:3000](http://localhost:3000)\
 \
 Your changes will automatically show up here. When you are done, run `npm run build` then restart the server and you will be able to see your frontend changes there too.
+
+## Our Authentication with Firebase
+https://console.firebase.google.com/u/0/project/crud-cows/authentication/users 
