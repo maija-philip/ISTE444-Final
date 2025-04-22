@@ -61,7 +61,7 @@ export default function EditCowPage() {
   };
 
   return (
-    <Page title={"Edit Cow"}>
+    <Page title={"Edit Cow"} hasAccountButton={true}>
       {/* Back Button */}
       <Link to="/" className="back-button">
         <ArrowBackIcon />

@@ -40,7 +40,7 @@ export default function LoginPage() {
   };
 
   return (
-    <Page title={"Login"}>
+    <Page title={"Login"} hasAccountButton={false}>
       {error !== "" ? <p className="red">{error}</p> : <></>}
 
       {loading ? (

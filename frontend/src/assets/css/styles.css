@@ -86,6 +86,16 @@ h1 {
     margin-right: 2em;
 }
 
+.floating-account-button {
+    color: var(--theme);
+    position: absolute;
+    top: 2.5em;
+    right: 2.5em;
+}
+.floating-account-button:hover {
+    color: var(--yellow);
+}
+
 /* COW BOX */
 .cow-box {
     background-color: var(--light-grey);

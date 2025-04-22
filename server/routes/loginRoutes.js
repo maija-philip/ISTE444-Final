@@ -8,6 +8,7 @@ const {
   createUserWithEmailAndPassword,
   signOut,
 } = require("@firebase/auth");
+const { isAuthorizedHasSessionForAPI } = require("../sessionMiddleware");
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -24,12 +25,12 @@ const firebaseConfig = {
 // start the app with firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-router.get("/email", function (req, res) {
+router.get("/email", isAuthorizedHasSessionForAPI, function (req, res) {
   res.status(200).json({ email: req.session.user.email });
   return;
 });
 
-router.get("/logout", function (req, res) {
+router.get("/logout", isAuthorizedHasSessionForAPI, function (req, res) {
   const auth = getAuth(firebaseApp);
   signOut(auth)
     .then(() => {

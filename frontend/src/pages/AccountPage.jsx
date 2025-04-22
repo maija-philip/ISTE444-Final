@@ -4,8 +4,9 @@ import "../assets/css/styles.css";
 
 import Page from "../components/Page";
 import { API_METHODS, getAPIData } from "../utils/callAPI";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function AccountPage() {
   const [email, setEmail] = React.useState("");
@@ -16,16 +17,16 @@ export default function AccountPage() {
   React.useEffect(() => {
     setLoading(true);
     getAPIData("/login/email", API_METHODS.get, {}).then((result) => {
-        setLoading(false);
-        if (!result.email) {
-            setError("Something went wrong")
-            console.log(result)
-            return;
-        }
-        console.log("email", result.email)
-        setEmail(result.email);
-    })
-  }, [])
+      setLoading(false);
+      if (!result.email) {
+        setError("Something went wrong");
+        console.log(result);
+        return;
+      }
+      console.log("email", result.email);
+      setEmail(result.email);
+    });
+  }, []);
 
   const logout = () => {
     setLoading(true);
@@ -42,7 +43,7 @@ export default function AccountPage() {
   };
 
   return (
-    <Page title={"Account"}>
+    <Page title={"Account"} hasAccountButton={false}>
       {error !== "" ? (
         // If Error, only display that
         <p className="red">{error}</p>
@@ -52,8 +53,14 @@ export default function AccountPage() {
       ) : (
         // Once Everything loads, here is the content
         <div>
+          {/* Back Button */}
+          <Link to="/" className="back-button">
+            <ArrowBackIcon />
+          </Link>
           <p>{email}</p>
-          <button className="button" onClick={logout}>Logout</button>
+          <button className="button" onClick={logout}>
+            Logout
+          </button>
         </div>
       )}
     </Page>
