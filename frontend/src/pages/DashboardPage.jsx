@@ -27,7 +27,7 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <Page title={"Dashboard"}>
+    <Page title={"Dashboard"} hasAccountButton={true}>
       {error !== "" ? (
         // If Error, only display that
         <p className="red">{error}</p>

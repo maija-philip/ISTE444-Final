@@ -49,10 +49,12 @@ app.set("trust proxy", true);
 // add the routes
 let frontendRouter = require("./routes/frontendRouter.js");
 let crudRouter = require("./routes/CRUDroutes.js");
+let loginRouter = require("./routes/loginRoutes.js");
 
 // use the routes
 app.use("/", frontendRouter);
 app.use("/api", crudRouter);
+app.use("/api/login", loginRouter);
 
 app.listen(8080); // 443 for https and 80 for http
 console.log("Express started on port 8080");

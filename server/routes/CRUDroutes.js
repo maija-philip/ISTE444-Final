@@ -6,9 +6,10 @@ const { getCows } = require("../../business/getCows");
 const { createCow } = require("../../business/createCow");
 const { deleteCow } = require("../../business/deleteCow");
 const { editCow } = require("../../business/editCow");
+const { isAuthorizedHasSessionForAPI } = require("../sessionMiddleware");
 
 // GET /api/cow?id=
-router.get("/cow", async function (req, res) {
+router.get("/cow", isAuthorizedHasSessionForAPI, async function (req, res) {
   const id = req.query.id;
 
   // check if we got an id
@@ -31,7 +32,7 @@ router.get("/cow", async function (req, res) {
 });
 
 // GET /api/cows
-router.get("/cows", async function (req, res) {
+router.get("/cows", isAuthorizedHasSessionForAPI, async function (req, res) {
   // send to business layer
   const result = await getCows();
 
@@ -44,7 +45,7 @@ router.get("/cows", async function (req, res) {
 });
 
 // POST /api/cow
-router.post("/cow", async function (req, res) {
+router.post("/cow", isAuthorizedHasSessionForAPI, async function (req, res) {
   // check to make sure all the data is there
   if (
     !req.body.hasOwnProperty("name") ||
@@ -72,7 +73,7 @@ router.post("/cow", async function (req, res) {
 });
 
 // PUT /api/cow
-router.put("/cow", async function (req, res) {
+router.put("/cow", isAuthorizedHasSessionForAPI, async function (req, res) {
   // check to make sure all the necessary data is there
   if (
     !req.body.hasOwnProperty("id") ||
@@ -101,7 +102,7 @@ router.put("/cow", async function (req, res) {
 });
 
 // DELETE /api/cow
-router.delete("/cow", async function (req, res) {
+router.delete("/cow", isAuthorizedHasSessionForAPI, async function (req, res) {
   const id = req.query.id;
 
   // check if we got an id

@@ -51,7 +51,7 @@ export default function CreateCowPage() {
   };
 
   return (
-    <Page title={"Create Cow"}>
+    <Page title={"Create Cow"} hasAccountButton={true}>
       {/* Back Button */}
       <Link to="/" className="back-button">
         <ArrowBackIcon />
