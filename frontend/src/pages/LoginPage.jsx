@@ -16,12 +16,13 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const login = () => {
-    setLoading(true)
+    setError("");
+    setLoading(true);
 
     // make sure fields are filled out
     if (email.trim() === "" || !email || password.trim() === "" || !password) {
-      setError("Please include an email and password")
-      setLoading(false)
+      setError("Please include an email and password");
+      setLoading(false);
       return;
     }
 
@@ -29,10 +30,35 @@ export default function LoginPage() {
       email: email,
       password: password,
     }).then((result) => {
-      setLoading(false)
+      setLoading(false);
       if (result.hasOwnProperty("error")) {
         // something went wrong
-        setError("Something went wrong, please try again");
+        setError("Incorrect username or password");
+      } else {
+        navigate("/");
+      }
+    });
+  };
+
+  const createAccount = () => {
+    setError("");
+    setLoading(true);
+
+    // make sure fields are filled out
+    if (email.trim() === "" || !email || password.trim() === "" || !password) {
+      setError("Please include an email and password");
+      setLoading(false);
+      return;
+    }
+
+    getAPIData("/login/newAccount", API_METHODS.post, {
+      email: email,
+      password: password,
+    }).then((result) => {
+      setLoading(false);
+      if (result.hasOwnProperty("error")) {
+        // something went wrong
+        setError("Email already in use");
       } else {
         navigate("/");
       }
@@ -69,9 +95,14 @@ export default function LoginPage() {
             onLeaveField={() => {}}
             isPassword={true}
           />
-          <button className="button" onClick={login}>
-            Login
-          </button>
+          <div className="create-and-cancel-button">
+            <button className="button secondary" onClick={createAccount}>
+              Create Account
+            </button>
+            <button className="button" onClick={login}>
+              Login
+            </button>
+          </div>
         </div>
       )}
     </Page>
