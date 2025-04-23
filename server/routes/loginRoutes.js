@@ -69,24 +69,36 @@ router.post("/", function (req, res) {
       const errorCode = error.code;
       const errorMessage = error.message;
 
-      // try registering a new user
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed up
-          const user = userCredential.user;
-          req.session.user = user;
-          req.session.save();
+      res.status(500).json({ error: "Something went wrong" });
+      return;
+    });
+});
 
-          res.status(200).json({ message: "ok" });
-          return;
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(error);
-          res.status(500).json({ error: "Something went wrong" });
-          return;
-        });
+router.post("/newAccount", function (req, res) {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res.status(400).json({ error: "Must include email and password" });
+    return;
+  }
+  const auth = getAuth(firebaseApp);
+
+  // try registering a new user
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed up
+      const user = userCredential.user;
+      req.session.user = user;
+      req.session.save();
+
+      res.status(200).json({ message: "ok" });
+      return;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // console.log(error);
+      res.status(500).json({ error: "Something went wrong" });
+      return;
     });
 });
 
