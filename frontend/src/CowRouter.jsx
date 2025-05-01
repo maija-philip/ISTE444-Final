@@ -8,6 +8,7 @@ import EditCowPage from "./pages/EditCowPage";
 import CreateCowPage from "./pages/CreateCowPage";
 import LoginPage from "./pages/LoginPage";
 import AccountPage from "./pages/AccountPage";
+import CowDetailPage from "./pages/CowDetailPage";
 
 
 
@@ -21,6 +22,10 @@ export const CowRouter = () => {
     {
       path: "/login",
       element: <LoginPage />,
+    },
+    {
+      path: "/:cowId/info",
+      element: <CowDetailPage />,
     },
     {
       path: "/:cowId/edit",

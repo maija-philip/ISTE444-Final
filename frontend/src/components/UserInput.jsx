@@ -18,7 +18,7 @@ export default function UserInput({
       <TextField
         multiline={isMultiline}
         fullWidth
-        id="fullWidth"
+        id={label}
         label={label}
         variant="outlined"
         value={value}

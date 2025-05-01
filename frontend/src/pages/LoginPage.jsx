@@ -31,7 +31,8 @@ export default function LoginPage() {
       password: password,
     }).then((result) => {
       setLoading(false);
-      if (result.hasOwnProperty("error")) {
+      if (!result || result.hasOwnProperty("error")) {
+        console.error(result)
         // something went wrong
         setError("Incorrect username or password");
       } else {
