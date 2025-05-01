@@ -1,21 +1,29 @@
-async function getCow(id) {
-  // check all the thingies
-  // get from db
+const pool = require('../db');
 
-  if (false) {
-    return {error: `Cow with id: ${id} not found`}
+async function getCow(id) {
+  try {
+    const [rows] = await pool.execute('SELECT * FROM Cow WHERE id = ?', [id]);
+
+    if (rows.length === 0) {
+      return { error: `Cow with id: ${id} not found` };
+    }
+
+    const cow = {
+      id: rows[0].id,
+      name: rows[0].name,
+      age: rows[0].age,
+      evil: rows[0].evil === 1, // convert 1 to true, 0 to false
+      weight: rows[0].weight,
+      description: rows[0].description,
+    };
+
+    return {
+      cow: cow,
+    };
+  } catch (error) {
+    console.error(error);
+    return { error: 'Error retrieving cow from the database' };
   }
-  
-  return {
-    cow: {
-      id: 1,
-      name: "Matilda",
-      age: 3000,
-      evil: true,
-      weight: 1100,
-      description: "This cow has a 30ft tail and has dementia",
-    },
-  };
 }
 
 module.exports = {
