@@ -21,7 +21,7 @@ export default function EditCowPage() {
   React.useEffect(() => {
     getAPIData(`/cow?id=${cowId}`, API_METHODS.get, {}).then((result) => {
       if (!result || result.hasOwnProperty("error")) {
-        console.log("error, ", result);
+        console.error("error, ", result);
         setBreakingError("Something went wrong fetching this cow's data");
         return;
       }

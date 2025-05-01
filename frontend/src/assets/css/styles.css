@@ -64,6 +64,11 @@ h1 {
     border-color: var(--yellow);
 }
 
+.delete-button {
+    color: var(--red);
+    border-color: var(--red);
+}
+
 .back-button {
     display: block;
     color: var(--black);
@@ -105,6 +110,10 @@ h1 {
 
     width: 15em;
     border-radius: 1em;
+    color: var(--black);
+}
+.cow-box:hover {
+    background-color: #F4EAE6A5; /* Light Grey Variable with opacity */
 }
 
 .cow-box .cow-image {
@@ -151,4 +160,14 @@ h1 {
 
 .create-and-cancel-button > * {
     margin: 2em 1em;
+}
+
+/* COW INFO */
+.cow-info {
+    width: 60%;
+    display: flex;
+    margin: auto;
+}
+.cow-info .cow-image {
+    width: 40%;
 }
